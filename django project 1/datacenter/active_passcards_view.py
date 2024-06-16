@@ -5,8 +5,8 @@ from django.utils.timezone import localtime, timedelta
 
 def active_passcards_view(request):
         
-    all_passcards = Passcard.objects.filter(is_active = True)
+    acctive_passcards = Passcard.objects.filter(is_active = True)
     context = {
-        'active_passcards': all_passcards,  
+        'active_passcards': acctive_passcards,  
     }
     return render(request, 'active_passcards.html', context)
