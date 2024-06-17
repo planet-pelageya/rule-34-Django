@@ -4,9 +4,9 @@ from django.shortcuts import render, get_object_or_404
 from django.utils.timezone import localtime, timedelta
 
 
-
 def passcard_info_view(request, passcode):
-    person_passcard = get_object_or_404(Passcard,passcode=passcode)
+    passcard = Passcard.objects.all()[0]
+    person_passcard = get_object_or_404(Passcard, passcode=passcode)
     visits = Visit.objects.filter(passcard=person_passcard)
     person_visits = []
     for visit in visits:
