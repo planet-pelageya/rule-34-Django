@@ -31,7 +31,7 @@ class Visit(models.Model):
 
 def get_duration(visit):
     time_now = localtime()
-    if visit.leaved_at == None:
+    if not visit.leaved_at:
         return time_now - visit.entered_at
     return visit.leaved_at - visit.entered_at
 
