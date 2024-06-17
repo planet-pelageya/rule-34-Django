@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.utils.timezone import localtime, timedelta
 from datetime import datetime
 
+
 def storage_information_view(request):
     non_closed_visit = Visit.objects.filter(leaved_at=None)
     person_visits = []
@@ -16,7 +17,5 @@ def storage_information_view(request):
             'duration': time_spend_in_storage,
             'is_strange': is_visits_long(visit, minutes=60)
         })
-    context = {
-        'non_closed_visits': person_visits,  
-    }
+    context = {'non_closed_visits': person_visits, }
     return render(request, 'storage_information.html', context)
